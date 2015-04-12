@@ -1,4 +1,4 @@
-(ns leiningen.new.re-frame
+(ns leiningen.new.zephyr-re-frame
   (:require [leiningen.new.templates :refer [renderer name-to-path ->files
                                              sanitize sanitize-ns project-name]]
             [leiningen.core.main :as main]
