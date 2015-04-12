@@ -16,6 +16,15 @@
 
 (def files-to-render
   ["project.clj"
+   "Procfile"
+   "LICENSE"
+   "README.md"
+   ".gitignore"
+   ".hgignore"
+
+   "doc/intro.md"
+
+   "devsrc/re-frame/dev.cljs"
 
    "src/clj/re-frame/server.clj"
    "src/clj/re-frame/utils.clj"
@@ -29,12 +38,6 @@
    "src/cljs/re-frame/scrolling.cljs"
    "src/cljs/re-frame/subscriptions.cljs"
    "src/cljs/re-frame/utils.cljs"
-
-   "LICENSE"
-   "README.md"
-   ".gitignore"
-   ".hgignore"
-   "Procfile"
 
    ;; Foundation files
    "resources/public/css/app.css"
