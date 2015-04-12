@@ -5,7 +5,7 @@
             [clojure.string :as s]
             [clojure.java.io :as io]))
 
-(def render (renderer "re-frame"))
+(def render (renderer "zephyr-re-frame"))
 
 (defn template-data [name]
   {:full-name            name
@@ -74,7 +74,7 @@
     (cons data (map render-file
                     files-to-render))))
 
-(defn re-frame
+(defn zephyr-re-frame
   "Generate a new web app using re-frame."
   [name]
   (let [data {:name name
