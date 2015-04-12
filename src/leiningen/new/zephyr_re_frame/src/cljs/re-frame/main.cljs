@@ -17,8 +17,7 @@
 (defn four-oh-four []
   [:div
    [:h1 "Sorry!"]
-   "There's nothing to see here."
-   [:a {:href "/#"} "Go back to the beginning..."]])
+   "There's nothing to see here."])
 
 (defn {{name}} []
   (let [page (rf/subscribe [:page])]
