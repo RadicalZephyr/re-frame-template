@@ -34,15 +34,37 @@
    "README.md"
    ".gitignore"
    ".hgignore"
-   "Procfile"])
+   "Procfile"
 
-(defn foundation-files []
-  (->> (io/file "src/leiningen/new/re_frame/resources")
-       file-seq
-       (remove #(.isDirectory %))
-       (map #(s/replace-first (.getPath %)
-                              "src/leiningen/new/re_frame/"
-                              ""))))
+   ;; Foundation files
+   "resources/public/css/app.css"
+   "resources/public/css/foundation.css"
+   "resources/public/css/foundation.min.css"
+   "resources/public/css/normalize.css"
+   "resources/public/img/.gitkeep"
+   "resources/public/js/foundation/foundation.abide.js"
+   "resources/public/js/foundation/foundation.accordion.js"
+   "resources/public/js/foundation/foundation.alert.js"
+   "resources/public/js/foundation/foundation.clearing.js"
+   "resources/public/js/foundation/foundation.dropdown.js"
+   "resources/public/js/foundation/foundation.equalizer.js"
+   "resources/public/js/foundation/foundation.interchange.js"
+   "resources/public/js/foundation/foundation.joyride.js"
+   "resources/public/js/foundation/foundation.js"
+   "resources/public/js/foundation/foundation.magellan.js"
+   "resources/public/js/foundation/foundation.offcanvas.js"
+   "resources/public/js/foundation/foundation.orbit.js"
+   "resources/public/js/foundation/foundation.reveal.js"
+   "resources/public/js/foundation/foundation.slider.js"
+   "resources/public/js/foundation/foundation.tab.js"
+   "resources/public/js/foundation/foundation.tooltip.js"
+   "resources/public/js/foundation/foundation.topbar.js"
+   "resources/public/js/foundation.min.js"
+   "resources/public/js/vendor/fastclick.js"
+   "resources/public/js/vendor/jquery.cookie.js"
+   "resources/public/js/vendor/jquery.js"
+   "resources/public/js/vendor/modernizr.js"
+   "resources/public/js/vendor/placeholder.js"])
 
 (defn format-files-args [name]
   (let [data (template-data name)
@@ -50,8 +72,7 @@
                       [(s/replace file "re-frame" "{{sanitized}}")
                        (render file data)])]
     (cons data (map render-file
-                    (concat files-to-render
-                            (foundation-files))))))
+                    files-to-render))))
 
 (defn re-frame
   "Generate a new web app using re-frame."
