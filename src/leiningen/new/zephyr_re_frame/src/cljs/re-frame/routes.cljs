@@ -4,6 +4,9 @@
             [secretary.core :as secretary
              :refer-macros [defroute]]))
 
+(defroute hello "/" {:as _}
+  (rf/dispatch [:hello]))
+
 (defroute "*" {:as _}
   (rf/dispatch [:unknown]))
 

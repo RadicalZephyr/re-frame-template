@@ -23,7 +23,7 @@
   (let [page (rf/subscribe [:page])]
     (fn []
       (case @page
-        nil [:h1 "Hello World!"]
+        :hello [:h1 "Hello World!"]
         [four-oh-four]))))
 
 (defn ^:export run []
@@ -35,6 +35,7 @@
     (hook-browser-navigation!)
     (catch js/Error e
       nil))
+  (r/go-to (r/hello {}))
   (reagent/render [{{name}}]
                   (.getElementById js/document "app")))
 

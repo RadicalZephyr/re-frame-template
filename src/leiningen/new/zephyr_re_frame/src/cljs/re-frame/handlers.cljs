@@ -7,8 +7,13 @@
 
 (defn init-handlers! []
   (rf/register-handler
+   :hello
+   (fn [db [page]]
+     (assoc db :page page)))
+
+  (rf/register-handler
    :unknown
    (fn [db [page]]
-     (assoc db :page :unknown)))
+     (assoc db :page page)))
 
   )
