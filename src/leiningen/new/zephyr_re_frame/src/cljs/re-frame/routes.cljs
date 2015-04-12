@@ -10,8 +10,14 @@
 (defroute "*" {:as _}
   (rf/dispatch [:unknown]))
 
-(defn go-to [page]
-  (h/set-token page))
+;; When setting the history token, we don't want to have a "/#"
+(defn go-to [page-url]
+  (h/set-token page-url))
+
+;; But if we set the URL directly, we probably want to prefix it with
+;; the "/#" to avoid any weirdness with relative paths
+(defn make-link [page-url]
+  (str "/#" page-url))
 
 (defn setup-secretary! []
-  (secretary/set-config! :prefix "/#"))
+  (secretary/set-config! :prefix ""))
